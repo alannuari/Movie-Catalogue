@@ -1,0 +1,364 @@
+:root {
+  --bg-color: #2d4059;
+  --bg-rating-color: #222831;
+  --primary-color: #ff5722;
+  --secondary-color: #eeeeee;
+}
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: white;
+  min-height: 100vh;
+}
+.app-bar {
+  padding: 8px 16px;
+  background-color: var(--bg-color);
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+  gap: 10px;
+  position: sticky;
+  top: 0;
+  z-index: 99;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
+}
+.app-bar .app-bar__brand {
+  display: flex;
+  align-items: center;
+}
+.app-bar .app-bar__brand a {
+  text-decoration: none;
+}
+.app-bar .app-bar__brand a h1 {
+  color: var(--primary-color);
+  font-size: 22px;
+}
+.app-bar .app-bar__menu {
+  display: none;
+}
+.app-bar .app-bar__menu button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
+  padding: 8px;
+  color: var(--secondary-color);
+}
+.app-bar .app-bar__navigation {
+  transition: all 0.3s;
+  padding: 8px;
+}
+.app-bar .app-bar__navigation.open {
+  left: 0;
+}
+.app-bar .app-bar__navigation ul li {
+  display: inline-block;
+}
+.app-bar .app-bar__navigation ul li a {
+  text-decoration: none;
+  color: var(--secondary-color);
+  padding: 8px 0;
+  border-bottom: 2px solid transparent;
+  margin: 0 12px;
+}
+.app-bar .app-bar__navigation ul li a:hover,
+.app-bar .app-bar__navigation ul li a.active {
+  color: var(--primary-color);
+  border-color: var(--primary-color);
+}
+.main {
+  min-height: 100vh;
+}
+.main, .search__result {
+  padding: 32px;
+}
+.search__container {
+  max-width: 600px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  padding: 10px;
+  display: flex;
+  background-color: var(--secondary-color);
+  margin: 20px auto;
+}
+.search__container > input {
+  width: 75%;
+  padding: 12px;
+  border: 0;
+  font-weight: bold;
+  border-radius: 20px;
+  outline: 0;
+}
+.search__container > button {
+  width: 22%;
+  cursor: pointer;
+  margin-left: auto;
+  padding: 12px;
+  background-color: grey;
+  color: white;
+  border: 0;
+  text-transform: uppercase;
+  border-radius: 20px;
+  transition: 0.4s all;
+  font-weight: bold;
+}
+.search__container > button:hover {
+  background-color: rgb(90, 90, 90);
+  color: white;
+}
+.content {
+  margin: 0 auto;
+  min-height: 100%;
+}
+.content .content__heading,
+.trending__container .trending__heading {
+  color: var(--bg-color);
+  padding: 6px 8px;
+  font-weight: normal;
+  border-radius: 4px;
+  background-color: var(--secondary-color);
+}
+.trending__container .trending__movies {
+  display: flex;
+  overflow-x: scroll;
+  padding: 32px 10px;
+  gap: 16px;
+}
+.trending__container .trending__movies::-webkit-scrollbar {
+  height: 10px;
+}
+.trending__container .trending__movies::-webkit-scrollbar-thumb {
+  background: #dbdbdb;
+  border-radius: 5px;
+}
+.movies {
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+  gap: 16px;
+  margin: 32px 0;
+  justify-content: center;
+}
+.movie-item {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  width: 250px;
+}
+.movie-item__header {
+  position: relative;
+}
+.movie-item .movie-item__header .movie-item__header__poster {
+  border-radius: 8px 8px 0 0;
+  width: 250px;
+}
+.movie-item .movie-item__header .movie-item__header__rating {
+  position: absolute;
+  padding: 8px;
+  bottom: -10px;
+  left: 0;
+  background-color: var(--bg-rating-color);
+  color: var(--primary-color);
+  border-radius: 0 8px 8px 0;
+}
+.movie-item .movie-item__header .movie-item__header__rating .movie-item__header__rating__score {
+  margin-left: 6px;
+}
+.movie-item .movie-item__content {
+  padding: 16px;
+  margin-bottom: 10px;
+}
+.movie-item .movie-item__content h3 {
+  margin-bottom: 10px;
+}
+.movie-item .movie-item__content h3 a {
+  color: var(--primary-color);
+  text-decoration: none;
+}
+.movie-item .movie-item__content p {
+  font-size: small;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+}
+.movie__container {
+  max-width: 1200px;
+  background: rgb(223, 223, 226);
+  display: flex;
+  padding: 30px;
+  margin: 20px auto 40px;
+}
+.movie__container .movie__poster {
+  border-radius: 10px;
+  height: fit-content;
+}
+.movie__container .movie__poster img {
+  border-radius: 10px;
+}
+.movie__container .movie__inner {
+  margin: 40px 0 40px 40px;
+}
+.movie__container .movie__inner .movie__title {
+  margin-bottom: 20px;
+}
+.movie__container .movie__inner .movie__title h1 {
+  color: var(--primary-color);
+}
+.movie__container .movie__inner .movie__title .movie__facts {
+  display: flex;
+  flex-wrap: nowrap;
+}
+.movie__container .movie__inner .movie__title .movie__facts .movie__release,
+.movie__container .movie__inner .movie__title .movie__facts .movie__genres {
+  padding-right: 10px;
+  border-right: 2px solid var(--primary-color);
+}
+.movie__container .movie__inner .movie__title .movie__facts .movie__genres,
+.movie__container .movie__inner .movie__title .movie__facts .movie__runtime {
+  padding-left: 10px;
+}
+.movie__container .movie__inner .movie__title .movie__facts .movie__genres i {
+  font-style: normal;
+}
+.movie__container .movie__inner .movie__rating {
+  width: fit-content;
+  padding: 10px 20px;
+  border-radius: 0 30px 30px 0;
+  background-color: var(--bg-rating-color);
+  color: var(--primary-color);
+  margin-bottom: 20px;
+}
+.movie__container .movie__inner .movie__info > p {
+  font-style: italic;
+  margin-bottom: 10px;
+  font-size: 20px;
+}
+.movie__container .movie__inner .movie__info > h2 {
+  margin-bottom: 10px;
+}
+.movie__container .movie__inner .movie__info .movie__overview {
+  font-size: 20px;
+}
+footer {
+  padding: 16px;
+  background-color: var(--secondary-color);
+}
+footer p {
+  text-align: center;
+  color: var(--bg-color);
+}
+footer p a {
+  text-decoration: none;
+  color: var(--primary-color);
+}
+@media screen and (max-width: 1330px) {
+  .movies {
+      grid-template-columns: auto auto auto;
+  }
+}
+@media screen and (max-width: 1015px) {
+  .movies {
+      grid-template-columns: auto auto;
+  }
+  .movie__container .movie__inner .movie__info > p {
+    font-size: unset;
+  }
+  .movie__container .movie__inner .movie__info .movie__overview {
+    font-size: unset;
+  }
+}
+@media screen and (max-width: 860px) {
+  .movie__container {
+    flex-direction: column;
+  }
+  .movie__container .movie__inner {
+    margin-right: 40px;
+  }
+  .movie__container .movie__poster {
+    margin: 0 auto;
+  }
+}
+@media screen and (max-width: 770px) {
+  .movies {
+    grid-template-columns: auto;
+  }
+}
+@media screen and (max-width: 650px) {
+  .app-bar {
+    grid-template-columns: 1fr auto;
+  }
+  .app-bar .app-bar__menu {
+    display: inline;
+  }
+  .app-bar .app-bar__navigation {
+    min-height: 100vh;
+    position: absolute;
+    top: 100%;
+    left: -230px;
+    width: 230px;
+    background-color: var(--bg-color);
+  }
+  .app-bar .app-bar__navigation ul li a {
+    display: inline-block;
+    border-bottom: none;
+    padding-left: 14px;
+    margin-top: 6px;
+    margin-bottom: 6px;
+    border-left: 2px solid transparent;
+  }
+  .movie__container .movie__inner {
+    margin-right: 0;
+    margin-left: 0;
+  }
+}
+@media screen and (max-width: 525px) {
+  .search__container {
+    flex-direction: column;
+  }
+  .search__container > input {
+    width: 100%;
+    margin-bottom: 10px;
+    border-radius: 40px;
+  }
+  .search__container > button {
+    width: 100%;
+    border-radius: 40px;
+  }
+  .movie__container .movie__inner .movie__title h1 {
+    font-size: 22px;
+  }
+  .movie__container .movie__inner .movie__rating {
+    padding: 5px 10px;
+  }
+  .movie__container .movie__inner .movie__title .movie__facts,
+  .movie__container .movie__inner .movie__rating,
+  .movie__container .movie__inner .movie__info {
+    font-size: 13px;
+  }
+}
+@media screen and (max-width: 370px) {
+  .main, .search__result {
+      padding: 16px 0;
+  }
+  .search__container {
+    margin: 20px 8px 0;
+  }
+  .content .content__heading,
+  .trending__container .trending__heading {
+      margin: 0 4px;
+  }
+  .trending__container .trending__movies {
+    padding: 16px 10px;
+  }
+  .movies {
+      margin: 16px 0;
+  }
+  .movie__container {
+    padding: 16px;
+  }
+  .movie__container .movie__poster img {
+    width: 100%;
+  }
+}

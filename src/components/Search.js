@@ -1,5 +1,6 @@
 import axios from 'axios';
 import React, { useState } from 'react';
+import Error from './Error';
 import MovieItem from './MovieItem';
 
 const Search = () => {
@@ -27,7 +28,7 @@ const Search = () => {
                 <div className='content'>
                     <div className='movies'>
                         {error ? (
-                            <p>{error}</p>
+                            <Error error={error} />
                         ) : (
                             <>
                                 {dataSearch.map((movie) => {

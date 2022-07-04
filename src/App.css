@@ -3,6 +3,7 @@
   --bg-rating-color: #222831;
   --primary-color: #ff5722;
   --secondary-color: #eeeeee;
+  --main-2: #d2d6db;
 }
 * {
   padding: 0;
@@ -183,6 +184,9 @@ body {
   -webkit-line-clamp: 4;
   -webkit-box-orient: vertical;
 }
+.movie__wrapper {
+  min-height: 100vh;
+}
 .movie__container {
   max-width: 1200px;
   background: rgb(223, 223, 226);
@@ -241,6 +245,12 @@ body {
 .movie__container .movie__inner .movie__info .movie__overview {
   font-size: 20px;
 }
+.error__message {
+  margin: 20px auto 10px;
+}
+.error__message p {
+  text-align: center;
+}
 footer {
   padding: 16px;
   background-color: var(--secondary-color);
@@ -253,7 +263,7 @@ footer p a {
   text-decoration: none;
   color: var(--primary-color);
 }
-@media screen and (max-width: 1330px) {
+@media screen and (max-width: 1230px) {
   .movies {
       grid-template-columns: auto auto auto;
   }

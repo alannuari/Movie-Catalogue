@@ -3,6 +3,7 @@ import axios from 'axios';
 import { useParams } from 'react-router-dom';
 import Layout from './Layout';
 import Error from './Error';
+import Loading from './Loading';
 
 const MovieDetail = () => {
     const { id } = useParams();
@@ -26,7 +27,7 @@ const MovieDetail = () => {
                 ) : (
                     <>
                         {Object.keys(movie).length === 0 ? (
-                            <p>Loading...</p>
+                            <Loading />
                         ) : (
                             <div className="movie__container">
                                 <div className="movie__poster">

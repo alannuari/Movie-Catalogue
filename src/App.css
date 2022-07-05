@@ -251,6 +251,20 @@ body {
 .error__message p {
   text-align: center;
 }
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  min-height: 100vh;
+}
+.loading .loading__text {
+  font-size: 18px;
+}
 footer {
   padding: 16px;
   background-color: var(--secondary-color);
